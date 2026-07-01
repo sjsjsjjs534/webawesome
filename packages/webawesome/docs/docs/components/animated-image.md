@@ -25,7 +25,7 @@ This component uses `<canvas>` to draw freeze frames, so images are subject to [
 
 ## Examples
 
-### WEBP Images
+### Image Formats
 
 Both GIF and WEBP images are supported.
 
