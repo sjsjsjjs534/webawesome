@@ -132,7 +132,7 @@ Use the `navigation` attribute to show previous and next buttons.
 
 ### Looping
 
-By default, the carousel will not advanced beyond the first and last slides. You can change this behavior and force the carousel to "wrap" with the `loop` attribute.
+By default, the carousel will not advance beyond the first and last slides. You can change this behavior and force the carousel to "wrap" with the `loop` attribute.
 
 ```html {.example}
 <wa-carousel loop navigation pagination>
@@ -175,6 +175,117 @@ The carousel will automatically advance when the `autoplay` attribute is used. T
 
 ```html {.example}
 <wa-carousel autoplay loop pagination>
+  <wa-carousel-item>
+    <img
+      alt="The sun shines on the mountains and trees (by Adam Kool on Unsplash)"
+      src="https://images.unsplash.com/photo-1426604966848-d7adac402bff?q=10"
+    />
+  </wa-carousel-item>
+  <wa-carousel-item>
+    <img
+      alt="A river winding through an evergreen forest (by Luca Bravo on Unsplash)"
+      src="https://images.unsplash.com/photo-1473448912268-2022ce9509d8?q=10"
+    />
+  </wa-carousel-item>
+  <wa-carousel-item>
+    <img
+      alt="The sun is setting over a lavender field (by Leonard Cotte on Unsplash)"
+      src="https://images.unsplash.com/photo-1499002238440-d264edd596ec?q=10"
+    />
+  </wa-carousel-item>
+  <wa-carousel-item>
+    <img
+      alt="A field of grass with the sun setting in the background (by Sapan Patel on Unsplash)"
+      src="https://images.unsplash.com/photo-1475113548554-5a36f1f523d6?q=10"
+    />
+  </wa-carousel-item>
+  <wa-carousel-item>
+    <img
+      alt="A scenic view of a mountain with clouds rolling in (by V2osk on Unsplash)"
+      src="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?q=10"
+    />
+  </wa-carousel-item>
+</wa-carousel>
+```
+
+### Multiple Slides per View
+
+The `slides-per-page` attribute makes it possible to display multiple slides at a time. You can also use the `slides-per-move` attribute to advance more than one slide at a time, if desired.
+
+```html {.example}
+<wa-carousel navigation pagination slides-per-page="2" slides-per-move="2">
+  <wa-carousel-item style="background: red;">Slide 1</wa-carousel-item>
+  <wa-carousel-item style="background: orange;">Slide 2</wa-carousel-item>
+  <wa-carousel-item style="background: yellow;">Slide 3</wa-carousel-item>
+  <wa-carousel-item style="background: green;">Slide 4</wa-carousel-item>
+  <wa-carousel-item style="background: blue;">Slide 5</wa-carousel-item>
+  <wa-carousel-item style="background: purple;">Slide 6</wa-carousel-item>
+</wa-carousel>
+```
+
+### Vertical Scrolling
+
+Setting the `orientation` attribute to `vertical` will render the carousel in a vertical layout. If the content of your slides vary in height, you will need to set an explicit `height` or `max-height` on the carousel using CSS.
+
+```html {.example}
+<wa-carousel class="vertical" pagination orientation="vertical">
+  <wa-carousel-item>
+    <img
+      alt="The sun shines on the mountains and trees (by Adam Kool on Unsplash)"
+      src="https://images.unsplash.com/photo-1426604966848-d7adac402bff?q=10"
+    />
+  </wa-carousel-item>
+  <wa-carousel-item>
+    <img
+      alt="A river winding through an evergreen forest (by Luca Bravo on Unsplash)"
+      src="https://images.unsplash.com/photo-1473448912268-2022ce9509d8?q=10"
+    />
+  </wa-carousel-item>
+  <wa-carousel-item>
+    <img
+      alt="The sun is setting over a lavender field (by Leonard Cotte on Unsplash)"
+      src="https://images.unsplash.com/photo-1499002238440-d264edd596ec?q=10"
+    />
+  </wa-carousel-item>
+  <wa-carousel-item>
+    <img
+      alt="A field of grass with the sun setting in the background (by Sapan Patel on Unsplash)"
+      src="https://images.unsplash.com/photo-1475113548554-5a36f1f523d6?q=10"
+    />
+  </wa-carousel-item>
+  <wa-carousel-item>
+    <img
+      alt="A scenic view of a mountain with clouds rolling in (by V2osk on Unsplash)"
+      src="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?q=10"
+    />
+  </wa-carousel-item>
+</wa-carousel>
+<style>
+  .vertical {
+    max-height: 400px;
+  }
+
+  .vertical::part(base) {
+    grid-template-areas: 'slides slides pagination';
+  }
+
+  .vertical::part(pagination) {
+    flex-direction: column;
+  }
+
+  .vertical::part(navigation) {
+    transform: rotate(90deg);
+    display: flex;
+  }
+</style>
+```
+
+### Scroll Hint
+
+Use the `--scroll-hint` custom property to add inline padding in horizontal carousels and block padding in vertical carousels. This will make the closest slides slightly visible, hinting that there are more items in the carousel.
+
+```html {.example}
+<wa-carousel class="scroll-hint" pagination style="--scroll-hint: 10%;">
   <wa-carousel-item>
     <img
       alt="The sun shines on the mountains and trees (by Adam Kool on Unsplash)"
@@ -265,21 +376,6 @@ This example is best demonstrated using a mouse. Try clicking and dragging the s
 </script>
 ```
 
-### Multiple Slides per View
-
-The `slides-per-page` attribute makes it possible to display multiple slides at a time. You can also use the `slides-per-move` attribute to advance more than once slide at a time, if desired.
-
-```html {.example}
-<wa-carousel navigation pagination slides-per-page="2" slides-per-move="2">
-  <wa-carousel-item style="background: red;">Slide 1</wa-carousel-item>
-  <wa-carousel-item style="background: orange;">Slide 2</wa-carousel-item>
-  <wa-carousel-item style="background: yellow;">Slide 3</wa-carousel-item>
-  <wa-carousel-item style="background: green;">Slide 4</wa-carousel-item>
-  <wa-carousel-item style="background: blue;">Slide 5</wa-carousel-item>
-  <wa-carousel-item style="background: purple;">Slide 6</wa-carousel-item>
-</wa-carousel>
-```
-
 ### Adding & Removing Slides
 
 The content of the carousel can be changed by adding or removing carousel items. The carousel will update itself automatically.
@@ -349,63 +445,6 @@ The content of the carousel can be changed by adding or removing carousel items.
 </script>
 ```
 
-### Vertical Scrolling
-
-Setting the `orientation` attribute to `vertical` will render the carousel in a vertical layout. If the content of your slides vary in height, you will need to set an explicit `height` or `max-height` on the carousel using CSS.
-
-```html {.example}
-<wa-carousel class="vertical" pagination orientation="vertical">
-  <wa-carousel-item>
-    <img
-      alt="The sun shines on the mountains and trees (by Adam Kool on Unsplash)"
-      src="https://images.unsplash.com/photo-1426604966848-d7adac402bff?q=10"
-    />
-  </wa-carousel-item>
-  <wa-carousel-item>
-    <img
-      alt="A river winding through an evergreen forest (by Luca Bravo on Unsplash)"
-      src="https://images.unsplash.com/photo-1473448912268-2022ce9509d8?q=10"
-    />
-  </wa-carousel-item>
-  <wa-carousel-item>
-    <img
-      alt="The sun is setting over a lavender field (by Leonard Cotte on Unsplash)"
-      src="https://images.unsplash.com/photo-1499002238440-d264edd596ec?q=10"
-    />
-  </wa-carousel-item>
-  <wa-carousel-item>
-    <img
-      alt="A field of grass with the sun setting in the background (by Sapan Patel on Unsplash)"
-      src="https://images.unsplash.com/photo-1475113548554-5a36f1f523d6?q=10"
-    />
-  </wa-carousel-item>
-  <wa-carousel-item>
-    <img
-      alt="A scenic view of a mountain with clouds rolling in (by V2osk on Unsplash)"
-      src="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?q=10"
-    />
-  </wa-carousel-item>
-</wa-carousel>
-<style>
-  .vertical {
-    max-height: 400px;
-  }
-
-  .vertical::part(base) {
-    grid-template-areas: 'slides slides pagination';
-  }
-
-  .vertical::part(pagination) {
-    flex-direction: column;
-  }
-
-  .vertical::part(navigation) {
-    transform: rotate(90deg);
-    display: flex;
-  }
-</style>
-```
-
 ### Aspect Ratio
 
 Use the `--aspect-ratio` custom property to customize the size of the carousel's viewport from the default value of 16/9.
@@ -466,45 +505,6 @@ Use the `--aspect-ratio` custom property to customize the size of the carousel's
     });
   })();
 </script>
-```
-
-### Scroll Hint
-
-Use the `--scroll-hint` custom property to add inline padding in horizontal carousels and block padding in vertical carousels. This will make the closest slides slightly visible, hinting that there are more items in the carousel.
-
-```html {.example}
-<wa-carousel class="scroll-hint" pagination style="--scroll-hint: 10%;">
-  <wa-carousel-item>
-    <img
-      alt="The sun shines on the mountains and trees (by Adam Kool on Unsplash)"
-      src="https://images.unsplash.com/photo-1426604966848-d7adac402bff?q=10"
-    />
-  </wa-carousel-item>
-  <wa-carousel-item>
-    <img
-      alt="A river winding through an evergreen forest (by Luca Bravo on Unsplash)"
-      src="https://images.unsplash.com/photo-1473448912268-2022ce9509d8?q=10"
-    />
-  </wa-carousel-item>
-  <wa-carousel-item>
-    <img
-      alt="The sun is setting over a lavender field (by Leonard Cotte on Unsplash)"
-      src="https://images.unsplash.com/photo-1499002238440-d264edd596ec?q=10"
-    />
-  </wa-carousel-item>
-  <wa-carousel-item>
-    <img
-      alt="A field of grass with the sun setting in the background (by Sapan Patel on Unsplash)"
-      src="https://images.unsplash.com/photo-1475113548554-5a36f1f523d6?q=10"
-    />
-  </wa-carousel-item>
-  <wa-carousel-item>
-    <img
-      alt="A scenic view of a mountain with clouds rolling in (by V2osk on Unsplash)"
-      src="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?q=10"
-    />
-  </wa-carousel-item>
-</wa-carousel>
 ```
 
 ### Gallery Example
