@@ -26,13 +26,17 @@ Use the `src` attribute to embed external websites or resources. The URL must be
 <wa-zoomable-frame src="https://example.com/"> </wa-zoomable-frame>
 ```
 
-The zoomable frame fills 100% width by default with a 16:9 aspect ratio. Customize this using the `aspect-ratio` CSS property.
+### Setting the Aspect Ratio
+
+The frame fills 100% width with a 16:9 aspect ratio by default. Change it with the `aspect-ratio` CSS property.
 
 ```html
 <wa-zoomable-frame src="https://example.com/" style="aspect-ratio: 4/3;"> </wa-zoomable-frame>
 ```
 
-Use the `srcdoc` attribute or property to display custom HTML content directly within the iframe, perfect for rendering inline content without external resources.
+### Displaying Inline Content
+
+Use the `srcdoc` attribute or property to render custom HTML directly in the frame, without an external resource.
 
 ```html
 <wa-zoomable-frame srcdoc="<html><body><h1>Hello, World!</h1><p>This is inline content.</p></body></html>">
