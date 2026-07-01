@@ -44,7 +44,7 @@ Avatar images can be lazily loaded by setting the `loading` attribute to `lazy`.
 When you don't have an image to use, you can set the `initials` attribute to show something more personalized than an icon.
 
 ```html {.example}
-<wa-avatar initials="WA" label="Avatar with initials: SL"></wa-avatar>
+<wa-avatar initials="WA" label="Avatar with initials: WA"></wa-avatar>
 ```
 
 ### Custom Icons
@@ -53,15 +53,15 @@ When no image or initials are set, an icon will be shown. The default avatar sho
 
 ```html {.example}
 <wa-avatar label="Avatar with an image icon">
-  <wa-icon slot="icon" name="image" variant="solid"></wa-icon>
+  <wa-icon slot="icon" name="image"></wa-icon>
 </wa-avatar>
 
 <wa-avatar label="Avatar with an archive icon">
-  <wa-icon slot="icon" name="archive" variant="solid"></wa-icon>
+  <wa-icon slot="icon" name="archive"></wa-icon>
 </wa-avatar>
 
 <wa-avatar label="Avatar with a briefcase icon">
-  <wa-icon slot="icon" name="briefcase" variant="solid"></wa-icon>
+  <wa-icon slot="icon" name="briefcase"></wa-icon>
 </wa-avatar>
 ```
 
