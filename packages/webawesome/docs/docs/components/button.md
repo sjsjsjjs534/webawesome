@@ -20,7 +20,7 @@ use-cases:
 
 ## Examples
 
-### Variants
+### Variant
 
 Use the `variant` attribute to set the button's [semantic variant](/docs/theming-overview#variants).
 
@@ -78,7 +78,7 @@ Use the `appearance` attribute to change the button's visual appearance. Pair it
 </div>
 ```
 
-### Sizes
+### Size
 
 Use the `size` attribute to change a button's size.
 
