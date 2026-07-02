@@ -19,7 +19,7 @@ QR codes are useful for providing small pieces of information to users who can q
 
 ## Examples
 
-### Sizes
+### Size
 
 Use the `size` attribute to change the size of the QR code.
 
